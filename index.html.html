@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+        </script>
+    </head>
+    <body onload="desenharTabuleiro()">
+        Jogo da Velha, daí <br><br>
+        
+        <script>
+            //var tabuleiro = [
+              //  [0, 1, 2],
+            //    [3, 4, 5],
+             //   [6, 7, 8]
+           // ];
+            
+            //tabuleiro[linha, podendo ser 0, 1 ou 2] + [coluna, ou seja, posição exata]
+            //tabuleiro[0][2];
+                    
+            
+            
+         
+            var VAZIO = {
+                simbolo: "_"
+            };
+            
+            var tabuleiro = [
+                [VAZIO, VAZIO, VAZIO],
+                [VAZIO, VAZIO, VAZIO],
+                [VAZIO, VAZIO, VAZIO]
+            ];
+            
+            
+            var jogadorX = {
+                simbolo: "X"
+            }
+            
+            var jogadorO = {
+                simbolo: "O"
+            }
+            
+            var jogadorAtual = jogadorX;
+            
+            
+            function novaLinha(){
+                // document.write("<br>");
+                var br= document.createElement("BR");
+                    document.body.appendChild(br);
+            }
+            
+            
+            var criarBotaoTabuleiro = function(linha, coluna){
+                var button = document.createElement("button");
+                button.textContent = tabuleiro[linha][coluna].simbolo;
+                document.body.appendChild(button);
+            }
+            
+            
+            
+            var desenharTabuleiro = function(){
+                for(var linha=0; linha <3; linha++){
+                    for(var coluna=0; coluna < 3; coluna++){
+                       // console.log("linha: " + linha + " / coluna: " + coluna);
+                       // document.write("[" + tabuleiro[linha][coluna] + "]");
+                       criarBotaoTabuleiro(linha,coluna);
+                       }
+                   novaLinha();
+                }
+                
+            }
+            
+           
+            var fazerJogada = function(linha, coluna) {
+                
+            }
+            
+            
+        </script>
+    </body>
+    
+</html>
