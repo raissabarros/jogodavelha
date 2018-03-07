@@ -43,7 +43,7 @@
             
             
             function novaLinha(){
-                // document.write("<br>");
+                
                 var br= document.createElement("BR");
                     document.body.appendChild(br);
             }
@@ -55,6 +55,7 @@
                 
                 button.onclick = function() {
                     fazerJogada(linha,coluna);
+                   
                 
                 }
                 document.body.appendChild(button);
@@ -75,6 +76,7 @@
                        criarBotaoTabuleiro(linha,coluna);
                        }
                    novaLinha();
+                    
                 }
                 
             }
@@ -97,14 +99,52 @@
                 if (tabuleiro[linha][coluna] === VAZIO) {
                     tabuleiro[linha][coluna] = jogadorAtual;
                     desenharTabuleiro(); //O tabuleiro é redesenhado e atualizado
+                    //verificar vitória (8 possibilidades)
+                    
+                    
+                    
+                    
+                    fimDoJogo();
                     proximoJogador();
+                    
                
                 } else { //Caso o espaço escolhido esteja ocupado
                     alert("Jogada Inválida");
                 }
-            
+                
             }
-
+            
+            
+            //O que ainda precisa fazer:
+            
+            // OK  1 - Fim do jogo - condição: estar todos os espaços preenchidos
+            // 2 - Deu velha - condição: nenhum jogador ganha
+            
+            
+            console.log("antes da função");
+            
+            var fimDoJogo = function() {
+               // for(var i=0; i < tabuleiro.lenght - 1; i++){
+                    // if (tabuleiro[linha][coluna] !== VAZIO){ - se refere a um espaço específico
+                console.log("entrou na função");
+                
+                jogadaFinal = 1;
+                for(i=0;i<tabuleiro.length; i++){
+                    for(j=0;j<tabuleiro.length;j++) {
+                        if(tabuleiro[i][j] === VAZIO) {
+                            jogadaFinal=0;
+                        }
+                    }
+                }
+                if(jogadaFinal==1) {
+                    alert("fim do jogo, daí");
+                }
+              
+            }
+            
+            // o vetor vai sendo preenchido com jogadores.
+            //Quando o último jogador jogar, tem que aparecer a mensagem.
+            // Porém, não se sabe a posição dele, apenas sabe-se que o vetor está preenchido
             
         </script>
     </body>
